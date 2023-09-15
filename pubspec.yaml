@@ -1,7 +1,6 @@
 name: flutterflip
 description: Create your Flutter Apps visually!
-version: 1.0.0
-publish_to: none
+version: 1.0.0-alpha.1
 
 environment:
   sdk: '>=3.0.0-0 <4.0.0'
