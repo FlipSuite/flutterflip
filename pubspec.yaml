@@ -1,0 +1,37 @@
+name: flutterflip
+description: Create your Flutter Apps visually!
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0-0 <4.0.0'
+
+dependencies:
+  cupertino_icons: 1.0.6
+  firebase_core: ^2.15.1
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.4.0
+  jaspr: ^0.9.0
+  jaspr_flutter_embed: ^0.1.4
+  jaspr_riverpod: ^0.3.6
+  js: ^0.6.7
+  riverpod: ^2.4.0
+
+dev_dependencies:
+  build_runner: ^2.4.6
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.3
+  jaspr_builder: ^0.9.0
+  jaspr_web_compilers: ^4.0.5
+  jaspr_tailwind: ^0.1.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/dash.png
+
+jaspr:
+  uses-ssr: true
+  uses-flutter: true
