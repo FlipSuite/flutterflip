@@ -41,7 +41,7 @@ class _InteropControlsState extends State<InteropControls> {
         if (state.currentScreen != DemoScreen.counter) 'disabled'
       ], events: {
         'click': (_) {
-          context.read(appStateProvider.notifier).increment();
+          // context.read(appStateProvider.notifier).increment();
         }
       }, []),
     ]);

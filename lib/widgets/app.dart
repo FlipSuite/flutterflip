@@ -1,3 +1,4 @@
+import 'package:dynamic_widget_plus_flutterflip/dynamic_widget/basic/dynamic_widget_json_exportor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -51,41 +52,59 @@ class _MyAppState extends State<MyApp> {
 class CounterDemo extends ConsumerStatefulWidget {
   final String title;
 
-  const CounterDemo({super.key, required this.title});
+  const CounterDemo({Key? key, required this.title}) : super(key: key);
 
   @override
   ConsumerState<CounterDemo> createState() => _CounterDemoState();
 }
 
 class _CounterDemoState extends ConsumerState<CounterDemo> {
+  late DynamicWidgetJsonExportor? _exportor;
+
   @override
   Widget build(BuildContext context) {
+    final appState = ref.watch(appStateProvider);
+    final jsonString = appState.jsonData;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Column(
+        children: [
+          Expanded(
+            child: FutureBuilder<Widget?>(
+              future: _buildWidget(context, jsonString),
+              builder: (BuildContext context, AsyncSnapshot<Widget?> snapshot) {
+                if (snapshot.hasError) {
+                  print(snapshot.error);
+                }
+                return snapshot.hasData
+                    ? _exportor = DynamicWidgetJsonExportor(
+                        child: snapshot.data,
+                      )
+                    : Text("Loading...");
+              },
             ),
-            Text(
-              '${ref.watch(appStateProvider).count}',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(appStateProvider.notifier).increment();
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
+  }
+
+  Future<Widget?> _buildWidget(BuildContext context, String jsonString) async {
+    return DynamicWidgetBuilder.build(
+      jsonString,
+      context,
+      DefaultClickListener(),
+    );
+  }
+}
+
+class DefaultClickListener implements ClickListener {
+  @override
+  void onClicked(String? event) {
+    print("Receive click event: " + (event == null ? "" : event));
   }
 }
 

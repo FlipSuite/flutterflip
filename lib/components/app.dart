@@ -1,4 +1,5 @@
 import 'package:flutterflip/components/navbar.dart';
+import 'package:flutterflip/components/widgets_listing.dart';
 import 'package:jaspr/html.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 
@@ -25,25 +26,7 @@ class App extends StatelessComponent {
             'bg-neutral-500',
             'p-4'
           ], [
-            h3([text('Available Widgets')]),
-            div(classes: [
-              'inline-flex',
-              'flex-wrap'
-            ], [
-              div(
-                classes: ['grid', 'grid-cols-3', 'gap-[10px]'],
-                [
-                  _widgetCard('Text'),
-                  _widgetCard('Image'),
-                  _widgetCard('Button'),
-                  _widgetCard('TextField'),
-                  _widgetCard('Checkbox'),
-                  _widgetCard('Radio'),
-                  _widgetCard('Slider'),
-                  _widgetCard('Switch'),
-                ],
-              ),
-            ])
+            WidgetsListing(),
           ]),
           div(classes: [], [
             // The Flutter app container
@@ -62,15 +45,6 @@ class App extends StatelessComponent {
           ]),
         ])
       ]),
-    );
-  }
-
-  Component _widgetCard(String name) {
-    return div(
-      classes: ['rounded', 'p-4', 'bg-white', 'w-[60px]', 'h-[60px]'],
-      [
-        span([text(name)])
-      ],
     );
   }
 }
