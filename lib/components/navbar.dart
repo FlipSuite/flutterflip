@@ -6,109 +6,132 @@ class Navbar extends StatelessComponent {
   @override
   Iterable<Component> build(BuildContext context) sync* {
     yield nav(classes: [
-      'bg-black',
+      'bg-zinc-900',
       'absolute',
       'w-full',
       'top-0',
-      'h-[64px]',
+      'h-[38px]',
       'flex',
       'justify-between',
-      'px-7'
+      'items-center',
+      'px-3'
     ], [
-      // Logo and primary nav
+      // Logo and project names left zone
       div(classes: [
         'flex',
-        'space-x-4'
+        'w-40'
       ], [
-        // Primary Nav
-        div(classes: [
-          'flex',
-          'items-center',
-        ], [
-          
-          a(href: "#", classes: [
-            'py-5',
-            'px-3',
-            'hover:text-zinc-300',
-            'h-[5px]',
-            'rounded',
-            'flex',
-            'items-center',
-            'align-middle',
-            'transition',
-            'duration-300',
-            'mr-10'
-          ], [
-            img(src: '../../web/assets/assets/logo.svg', classes: [
-            'h-[35px]',
-          ]),
-          ]),
-          a(href: "#", classes: [
-            'py-5',
-            'px-3',
-            'hover:text-zinc-300',
-            'h-[5px]',
-            'rounded',
-            'flex',
-            'items-center',
-            'align-middle',
-            'transition',
-            'duration-300'
-          ], [
-            text('Features')
-          ]),
-          a(href: "#", classes: [
-            'py-5',
-            'px-3',
-            'hover:text-zinc-300',
-            'h-[5px]',
-            'rounded',
-            'flex',
-            'items-center',
-            'align-middle',
-            'transition',
-            'duration-300'
-          ], [
-            text('Pricing')
-          ]),
-        ]),
-      ]),
-
-      // Secondary Nav
-      div(classes: [
-        'hidden',
-        'md:flex',
-        'items-center',
-        'space-x-1'
-      ], [
-        a(href: "", classes: [
-          'py-5',
-          'px-3',
+        a(href: "#", classes: [
           'hover:text-zinc-300',
-          'h-[5px]',
           'rounded',
           'flex',
           'items-center',
           'align-middle',
           'transition',
-          'duration-300'
+          'duration-300',
+          'mr-4'
         ], [
-          text('Login')
+          img(src: '../../web/assets/assets/logo.svg', classes: [
+            'h-[24px]',
+          ]),
         ]),
-        a(href: "", classes: [
-          'py-2',
-          'px-3',
-          'bg-yellow-400',
-          'hover:bg-yellow-300',
-          'text-yellow-900',
-          'hover:text-yellow-800',
-          'rounded',
-          'transition',
-          'duration-300'
+        div(classes: [
+          'flex',
+          'flex-col'
         ], [
-          text('Signup')
+          span(classes: [
+            'text-white',
+            'text-[10px]',
+            'font-bold'
+          ], [
+            text('FlutterFlip'),
+            span(classes: [
+              'ml-1',
+              'inline-block',
+              'text-gray-400',
+              'text-[6px]',
+            ], [
+              text('v0.1')
+            ]),
+          ]),
+          span(classes: [
+            'text-gray-400',
+            'text-[6px]',
+          ], [
+            text('default project')
+          ]),
+        ])
+      ]),
+
+      // Screen resizing middle zone
+      div(classes: [
+        'flex',
+        // 'py-1',
+        // 'border',
+        // 'rounded',
+        // 'border-zinc-800',
+        'px-2',
+        'gap-3',
+        'items-center'
+      ], [
+        img(src: '/icons/mobile.svg', classes: [
+          'h-[24px]',
+        ]),
+        img(src: '/icons/tablet.svg', classes: [
+          'h-[24px]',
+        ]),
+        img(src: '/icons/desktop.svg', classes: [
+          'h-[24px]',
+        ]),
+        div(classes: [
+          'text-white',
+          'text-[6px]',
+          'font-bold',
+          'flex',
+          'justify-between',
+          'items-center',
+        ], [
+          input(
+              type: InputType.text,
+              classes: [
+                'bg-transparent',
+                'border-none',
+                'text-center',
+                'text-[8px]',
+                'w-6',
+                'text-white',
+                'focus:outline-none',
+                'focus:ring-0',
+                'focus:border-transparent',
+              ],
+              [],
+              value: '600'),
+          span(classes: [
+            'text-gray-400',
+            'inline-block',
+            'mx-1',
+          ], [
+            text('x'),
+          ]),
+          input(
+              type: InputType.text,
+              classes: [
+                'bg-transparent',
+                'border-none',
+                'text-center',
+                'text-[8px]',
+                'w-6',
+                'text-white',
+                'focus:outline-none',
+                'focus:ring-0',
+                'focus:border-transparent',
+              ],
+              [],
+              value: '800'),
         ]),
       ]),
+
+      div(classes: ['w-40'], [])
     ]);
   }
 }
