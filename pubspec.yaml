@@ -11,31 +11,23 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.4.0
-  jaspr:
-    git:
-      url: https://github.com/FlipSuite/jaspr_flutterflip.git
-      path: packages/jaspr
-  jaspr_flutter_embed:
-    git:
-      url: https://github.com/FlipSuite/jaspr_flutterflip.git
-      path: packages/jaspr_flutter_embed
-  jaspr_riverpod:
-    git:
-      url: https://github.com/FlipSuite/jaspr_flutterflip.git
-      path: packages/jaspr_riverpod
+  jaspr: ^0.9.0
+  jaspr_flutter_embed: ^0.1.4
+  jaspr_riverpod: ^0.3.6
   js: ^0.6.7
   riverpod: ^2.4.0
-  json_dynamic_widget: ^7.0.0+2
+  http: ^1.1.0
+  # dynamic_widget_plus: ^1.0.0
+  dynamic_widget_plus_flutterflip:
+    git:
+      url: https://github.com/FlipSuite/dynamic_widget_plus_flutterflip.git
 
 dev_dependencies:
   build_runner: ^2.4.6
   flutter_lints: ^2.0.3
   flutter_test:
     sdk: flutter
-  jaspr_builder:
-    git:
-      url: https://github.com/FlipSuite/jaspr_flutterflip.git
-      path: packages/jaspr_builder
+  jaspr_builder: ^0.9.0
   jaspr_tailwind: ^0.1.0
   jaspr_web_compilers: ^4.0.5
 
