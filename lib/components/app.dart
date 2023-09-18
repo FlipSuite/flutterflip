@@ -17,23 +17,29 @@ class App extends StatelessComponent {
       child: section([
         Navbar(),
         div(classes: [
-          'mt-[64px]',
-          'py-5',
+          'pt-[38px]',
           'flex',
-          'justify-between'
+          'justify-between',
+          'align-center',
+          'h-screen',
+          'overflow-hidden',
+          'bg-neutral-800'
         ], [
           div(classes: [
-            'bg-neutral-500',
+            'bg-zinc-800',
             'p-4'
           ], [
             WidgetsListing(),
           ]),
-          div(classes: [], [
+          div(id: 'flutter_container', classes: [
+            'flex',
+            'align-center',
+          ], [
             // The Flutter app container
             FlutterAppContainer(),
           ]),
           div(classes: [
-            'bg-stone-700',
+            'bg-zinc-800',
             'flex',
             'items-center',
             'justify-center',

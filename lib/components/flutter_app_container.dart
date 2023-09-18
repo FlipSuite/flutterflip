@@ -10,7 +10,7 @@ class FlutterAppContainer extends StatelessComponent {
     yield article([
       div(id: 'flutter_target', [
         RippleLoader(),
-      ])
+      ], classes: [])
     ]);
   }
 }
