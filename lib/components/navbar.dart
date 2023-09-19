@@ -6,15 +6,16 @@ class Navbar extends StatelessComponent {
   @override
   Iterable<Component> build(BuildContext context) sync* {
     yield nav(classes: [
-      'bg-zinc-900',
+      'bg-green-400	',
       'absolute',
       'w-full',
       'top-0',
-      'h-[38px]',
+      'h-[45px]',
       'flex',
       'justify-between',
       'items-center',
-      'px-3'
+      'px-3',
+      'drop-shadow'
     ], [
       // Logo and project names left zone
       div(classes: [
@@ -40,7 +41,7 @@ class Navbar extends StatelessComponent {
           'flex-col'
         ], [
           span(classes: [
-            'text-white',
+            'text-black',
             'text-[10px]',
             'font-bold'
           ], [
@@ -48,15 +49,15 @@ class Navbar extends StatelessComponent {
             span(classes: [
               'ml-1',
               'inline-block',
-              'text-gray-400',
-              'text-[6px]',
+              'text-black	',
+              'text-[8px]',
             ], [
               text('v0.1')
             ]),
           ]),
           span(classes: [
-            'text-gray-400',
-            'text-[6px]',
+            'text-green-900	',
+            'text-[8px]',
           ], [
             text('default project')
           ]),
@@ -84,8 +85,8 @@ class Navbar extends StatelessComponent {
           'h-[24px]',
         ]),
         div(classes: [
-          'text-white',
-          'text-[6px]',
+          'text-green-900',
+          'text-[8px]',
           'font-bold',
           'flex',
           'justify-between',
@@ -97,9 +98,9 @@ class Navbar extends StatelessComponent {
                 'bg-transparent',
                 'border-none',
                 'text-center',
-                'text-[8px]',
+                'text-[10px]',
                 'w-6',
-                'text-white',
+                'text-green-900',
                 'focus:outline-none',
                 'focus:ring-0',
                 'focus:border-transparent',
@@ -107,7 +108,7 @@ class Navbar extends StatelessComponent {
               [],
               value: '600'),
           span(classes: [
-            'text-gray-400',
+            'text-black',
             'inline-block',
             'mx-1',
           ], [
@@ -119,9 +120,9 @@ class Navbar extends StatelessComponent {
                 'bg-transparent',
                 'border-none',
                 'text-center',
-                'text-[8px]',
+                'text-[10px]',
                 'w-6',
-                'text-white',
+                'text-green-900',
                 'focus:outline-none',
                 'focus:ring-0',
                 'focus:border-transparent',
