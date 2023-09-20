@@ -7,6 +7,42 @@ class WidgetsListing extends StatelessComponent {
 
   @override
   Iterable<Component> build(BuildContext context) sync* {
+    generateWidgetCard(String widgetName) {
+      return div(
+        classes: [
+          'rounded',
+          'bg-green-700',
+          'flex',
+          'justify-center',
+          'items-center',
+          'flex-col',
+          'w-[60px]',
+          'h-[60px]',
+          'cursor-pointer'
+        ],
+        [
+          img(src: '/icons/widgets/${widgetName.toLowerCase()}.svg', classes: [
+            'h-[35px]',
+            'mb-1'
+          ]),
+          span(classes: [
+            'text-[9px]',
+            'font-bold',
+            'text-white',
+          ], [
+            text(widgetName)
+          ]),
+        ],
+        events: {
+          'click': (_) {
+            context
+                .read(appStateProvider.notifier)
+                .updateJsonData(widgetsJSON[widgetName]!);
+          },
+        },
+      );
+    }
+
     yield h3([text('Available Widgets')]);
     yield div(
       classes: ['inline-flex', 'flex-wrap'],
@@ -14,26 +50,12 @@ class WidgetsListing extends StatelessComponent {
         div(
           classes: ['grid', 'grid-cols-3', 'gap-[10px]'],
           [
-            div(
-              classes: [
-                'rounded',
-                'p-4',
-                'bg-white',
-                'w-[60px]',
-                'h-[60px]',
-                'cursor-pointer'
-              ],
-              [
-                span([text('Container')]),
-              ],
-              events: {
-                'click': (_) {
-                  context
-                      .read(appStateProvider.notifier)
-                      .updateJsonData(widgetsJSON['Container']!);
-                },
-              },
-            ),
+            generateWidgetCard('Container'),
+            generateWidgetCard('Column'),
+            generateWidgetCard('Row'),
+            generateWidgetCard('Text'),
+            generateWidgetCard('Image'),
+            generateWidgetCard('Button'),
           ],
         ),
       ],
@@ -74,5 +96,10 @@ Map<String, String> widgetsJSON = {
             "borderRadius":"10.0:10.0,10.0:10.0,10.0:10.0,10.0:10.0"
         }
     }
-  '''
+  ''',
+  'Row': '''{}''',
+  'Column': '''{}''',
+  'Text': '''{}''',
+  'Image': '''{}''',
+  'Button': '''{}'''
 };

@@ -56,8 +56,8 @@ class Navbar extends StatelessComponent {
             ]),
           ]),
           span(classes: [
-            'text-green-900	',
-            'text-[8px]',
+            'text-black',
+            'text-[9px]',
           ], [
             text('default project')
           ]),
