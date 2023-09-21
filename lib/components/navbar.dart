@@ -99,14 +99,17 @@ class Navbar extends StatelessComponent {
                 'border-none',
                 'text-center',
                 'text-[10px]',
-                'w-6',
+                'w-7',
                 'text-green-900',
                 'focus:outline-none',
                 'focus:ring-0',
                 'focus:border-transparent',
               ],
               [],
-              value: '600'),
+              events: {
+                // 'input': (e) => querySelector('#flutter_target')?.style.width = e.target.value + 'px'
+              },
+              value: '700'),
           span(classes: [
             'text-black',
             'inline-block',
@@ -121,14 +124,17 @@ class Navbar extends StatelessComponent {
                 'border-none',
                 'text-center',
                 'text-[10px]',
-                'w-6',
+                'w-7',
                 'text-green-900',
                 'focus:outline-none',
                 'focus:ring-0',
                 'focus:border-transparent',
               ],
               [],
-              value: '800'),
+              events: {
+                // 'input': (e) => querySelector('#flutter_target')?.style.height = e.target.value + 'px'
+              },
+              value: '900'),
         ]),
       ]),
 
