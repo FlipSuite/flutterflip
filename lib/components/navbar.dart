@@ -1,3 +1,6 @@
+@Import.onWeb('dart:html', show: [#document])
+import 'navbar.imports.dart';
+
 import 'package:jaspr/html.dart';
 
 class Navbar extends StatelessComponent {
@@ -107,7 +110,7 @@ class Navbar extends StatelessComponent {
               ],
               [],
               events: {
-                // 'input': (e) => querySelector('#flutter_target')?.style.width = e.target.value + 'px'
+                'input': (e) => document.querySelector('#flutter_target')?.style.width = e.target.value + 'px'
               },
               value: '700'),
           span(classes: [
@@ -132,7 +135,7 @@ class Navbar extends StatelessComponent {
               ],
               [],
               events: {
-                // 'input': (e) => querySelector('#flutter_target')?.style.height = e.target.value + 'px'
+                'input': (e) => document.querySelector('#flutter_target')?.style.height = e.target.value + 'px'
               },
               value: '900'),
         ]),

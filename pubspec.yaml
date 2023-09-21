@@ -17,6 +17,7 @@ dependencies:
   js: ^0.6.7
   riverpod: ^2.4.0
   http: ^1.1.0
+  stagexl: ^2.0.0
   # dynamic_widget_plus: ^1.0.0
   dynamic_widget_plus_flutterflip:
     git:
