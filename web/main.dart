@@ -1,7 +1,7 @@
 import 'dart:html';
 
 import 'package:flutterflip/components/app.dart';
-import 'package:jaspr/browser.dart';
+import 'package:jaspr/browser.dart' hide Element;
 
 /// The web entrypoint for the jaspr app.
 void main() {
@@ -12,18 +12,21 @@ void main() {
   String resizeDirection = '';
   num offsetX = 0, offsetY = 0;
 
-  var flutterTarget = document.querySelector('#flutter_canvas');
-  print(flutterTarget);
+ Element? flutterTarget = document.querySelector('#flutter_canvas');
 
-  print(MouseEvent);
-
-  flutterTarget?.onMouseDown.listen((e) {
-    isDragging = true;
-    offsetX = e.client.x - (flutterTarget.getBoundingClientRect().left ?? 0);
-    offsetY = e.client.y - (flutterTarget.getBoundingClientRect().top ?? 0);
+  flutterTarget?.onMouseDown.listen((MouseEvent e) {
+    if (e.target is! Element ||
+        !(e.target as Element).classes.contains('resize-handle')) {
+      isDragging = true;
+      offsetX = e.client.x - (flutterTarget.getBoundingClientRect().left ?? 0);
+      offsetY = e.client.y - (flutterTarget.getBoundingClientRect().top ?? 0);
+    } else {
+      isResizing = true;
+      resizeDirection = (e.target as Element).id;
+    }
   });
 
-  document.onMouseMove.listen((e) {
+  document.onMouseMove.listen((MouseEvent e) {
     if (isDragging) {
       num x = e.client.x - offsetX;
       num y = e.client.y - offsetY;
@@ -49,12 +52,12 @@ void main() {
     }
   });
 
-  document.onMouseUp.listen((e) {
+  document.onMouseUp.listen((MouseEvent e) {
     isDragging = false;
     isResizing = false;
   });
 
-  flutterTarget?.onDragStart.listen((e) {
+  flutterTarget?.onDragStart.listen((Event e) {
     e.preventDefault(); // prevent default drag behavior
   });
 }
