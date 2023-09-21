@@ -110,7 +110,7 @@ class Navbar extends StatelessComponent {
               ],
               [],
               events: {
-                'input': (e) => document.querySelector('#flutter_target')?.style.width = e.target.value + 'px'
+                'input': (e) => document.querySelector('#flutter_canvas')?.style.width = e.target.value + 'px'
               },
               value: '700'),
           span(classes: [
@@ -135,7 +135,7 @@ class Navbar extends StatelessComponent {
               ],
               [],
               events: {
-                'input': (e) => document.querySelector('#flutter_target')?.style.height = e.target.value + 'px'
+                'input': (e) => document.querySelector('#flutter_canvas')?.style.height = e.target.value + 'px'
               },
               value: '900'),
         ]),

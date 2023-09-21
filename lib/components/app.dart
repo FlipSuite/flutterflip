@@ -37,8 +37,12 @@ class App extends StatelessComponent {
             'flex',
             'align-center',
           ], [
-            // The Flutter app container
+            div([
             FlutterAppContainer(),
+            div([], classes: ['resize-handle'], id: 'right-handle'),
+            div([], classes: ['resize-handle'], id: 'bottom-handle'),
+            ], id: 'flutter_canvas')
+            // The Flutter app container
           ]),
           div(classes: [
             //right
