@@ -21,10 +21,9 @@ class WidgetsListing extends StatelessComponent {
           'cursor-pointer'
         ],
         [
-          img(src: '/icons/widgets/${widgetName.toLowerCase()}.svg', classes: [
-            'h-[35px]',
-            'mb-[1px]'
-          ]),
+          img(
+              src: '/icons/widgets/${widgetName.toLowerCase()}.svg',
+              classes: ['h-[35px]', 'mb-[1px]']),
           span(classes: [
             'text-[9px]',
             'font-bold',
@@ -43,24 +42,41 @@ class WidgetsListing extends StatelessComponent {
       );
     }
 
-    yield h3([text('Available Widgets')]);
-    yield div(
-      classes: ['inline-flex', 'flex-wrap'],
-      [
-        div(
-          classes: ['grid', 'grid-cols-3', 'gap-[10px]'],
-          [
-            generateWidgetCard('Container'),
-            generateWidgetCard('Column'),
-            generateWidgetCard('Row'),
+    yield div([
+      h3(
+          classes: ['text-white', 'text-[14px]', 'font-bold', 'mb-[10px]'],
+          [text('Layout Widgets')]),
+      div(
+        classes: ['inline-flex', 'flex-wrap'],
+        [
+          div(
+            classes: ['grid', 'grid-cols-3', 'gap-[10px]'],
+            [
+              generateWidgetCard('Container'),
+              generateWidgetCard('Column'),
+              generateWidgetCard('Row'),
+              generateWidgetCard('Stack'),
+            ],
+          ),
+        ],
+      ),
+      h3(
+          classes: ['text-white', 'text-[14px]', 'font-bold', 'mb-[10px]', 'mt-[20px]'],
+          [text('Basic Widgets')]),
+      div(
+        classes: ['inline-flex', 'flex-wrap'],
+        [
+          div(
+            classes: ['grid', 'grid-cols-3', 'gap-[10px]'],
+            [
             generateWidgetCard('Text'),
             generateWidgetCard('Image'),
             generateWidgetCard('Button'),
-            generateWidgetCard('Stack'),
-          ],
-        ),
-      ],
-    );
+            ],
+          ),
+        ],
+      ),
+    ]);
   }
 }
 
