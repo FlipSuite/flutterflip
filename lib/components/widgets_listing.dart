@@ -23,7 +23,7 @@ class WidgetsListing extends StatelessComponent {
         [
           img(src: '/icons/widgets/${widgetName.toLowerCase()}.svg', classes: [
             'h-[35px]',
-            'mb-1'
+            'mb-[1px]'
           ]),
           span(classes: [
             'text-[9px]',
@@ -56,6 +56,7 @@ class WidgetsListing extends StatelessComponent {
             generateWidgetCard('Text'),
             generateWidgetCard('Image'),
             generateWidgetCard('Button'),
+            generateWidgetCard('Stack'),
           ],
         ),
       ],
@@ -101,5 +102,6 @@ Map<String, String> widgetsJSON = {
   'Column': '''{}''',
   'Text': '''{}''',
   'Image': '''{}''',
-  'Button': '''{}'''
+  'Button': '''{}''',
+  'Stack': '''{}''',
 };

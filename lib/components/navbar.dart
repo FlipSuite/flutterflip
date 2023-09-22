@@ -87,58 +87,6 @@ class Navbar extends StatelessComponent {
         img(src: '/icons/desktop.svg', classes: [
           'h-[24px]',
         ]),
-        div(classes: [
-          'text-green-900',
-          'text-[8px]',
-          'font-bold',
-          'flex',
-          'justify-between',
-          'items-center',
-        ], [
-          input(
-              type: InputType.text,
-              classes: [
-                'bg-transparent',
-                'border-none',
-                'text-center',
-                'text-[10px]',
-                'w-7',
-                'text-green-900',
-                'focus:outline-none',
-                'focus:ring-0',
-                'focus:border-transparent',
-              ],
-              [],
-              events: {
-                'input': (e) => document.querySelector('#flutter_canvas')?.style.width = e.target.value + 'px'
-              },
-              value: '700'),
-          span(classes: [
-            'text-black',
-            'inline-block',
-            'mx-1',
-          ], [
-            text('x'),
-          ]),
-          input(
-              type: InputType.text,
-              classes: [
-                'bg-transparent',
-                'border-none',
-                'text-center',
-                'text-[10px]',
-                'w-7',
-                'text-green-900',
-                'focus:outline-none',
-                'focus:ring-0',
-                'focus:border-transparent',
-              ],
-              [],
-              events: {
-                'input': (e) => document.querySelector('#flutter_canvas')?.style.height = e.target.value + 'px'
-              },
-              value: '900'),
-        ]),
       ]),
 
       div(classes: ['w-40'], [])

@@ -13,11 +13,13 @@ void main() {
   num offsetX = 0, offsetY = 0;
 
  Element? flutterTarget = document.querySelector('#flutter_canvas');
+ Element? body = document.querySelector('body');
 
   flutterTarget?.onMouseDown.listen((MouseEvent e) {
     if (e.target is! Element ||
         !(e.target as Element).classes.contains('resize-handle')) {
       isDragging = true;
+      body?.classes.add('unselectable');
       offsetX = e.client.x - (flutterTarget.getBoundingClientRect().left ?? 0);
       offsetY = e.client.y - (flutterTarget.getBoundingClientRect().top ?? 0);
     } else {
@@ -55,6 +57,7 @@ void main() {
   document.onMouseUp.listen((MouseEvent e) {
     isDragging = false;
     isResizing = false;
+    body?.classes.remove('unselectable');
   });
 
   flutterTarget?.onDragStart.listen((Event e) {
